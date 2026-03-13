@@ -2,6 +2,7 @@ use clap::Parser;
 use std::fs;
 
 pub mod config;
+pub mod fips;
 pub mod grpc;
 pub mod kafka;
 pub mod logging;

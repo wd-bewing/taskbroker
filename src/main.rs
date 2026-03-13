@@ -63,6 +63,12 @@ async fn main() -> Result<(), Error> {
     println!("taskbroker starting");
     println!("version: {}", get_version().trim());
 
+    #[cfg(feature = "fips")]
+    {
+        taskbroker::fips::ensure_fips_provider()
+            .map_err(|e| anyhow!("{e}"))?;
+    }
+
     logging::init(logging::LoggingConfig::from_config(&config));
     metrics::init(metrics::MetricsConfig::from_config(&config));
 

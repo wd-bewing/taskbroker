@@ -59,6 +59,7 @@ tracing-subscriber = { version = "0.3.18", features = [
     "json",
 ] }
 uuid = { version = "1.11.0", features = ["v4"] }
+openssl = { version = "0.10", optional = true }
 
 [dev-dependencies]
 criterion = { version = "0.5.1", features = ["async_tokio"] }
@@ -70,3 +71,5 @@ harness = false
 
 [features]
 bench-with-mnt-disk = []
+# FIPS 140-3: load OpenSSL FIPS provider at startup when FIPS_MODE=1. Requires OpenSSL 3.x built with FIPS.
+fips = ["dep:openssl"]

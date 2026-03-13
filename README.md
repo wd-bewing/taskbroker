@@ -38,6 +38,10 @@ cargo build --release
 
 The resulting binary ends up in `target/release/` along with debug information files.
 
+### FIPS 140-3
+
+To build and run in a FIPS 140-3 compliant configuration, build with the `fips` feature, set `FIPS_MODE=1` and `OPENSSL_MODULES` at run time, and use an OpenSSL 3.x environment with the FIPS module. See [docs/FIPS.md](docs/FIPS.md) for prerequisites, build steps, and verification.
+
 ## Development
 
 To build `taskbroker` we require the latest stable Rust and `protoc`. The root of the repository
